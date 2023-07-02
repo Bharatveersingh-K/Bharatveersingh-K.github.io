@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Student Portfolio Analyser</title>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav id="nav-menu">
+    <a href="#home" class="nav-link home">Home</a>
+    <a href="#about" class="nav-link about">About Me</a>
+    <a href="#skills" class="nav-link skills">Skills</a>
+    <a href="#projects" class="nav-link projects">Projects</a>
+    <a href="#contact" class="nav-link contact">Contact</a>
+    <a href="#resume" class="nav-link resume">Resume</a>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h1 id="user-detail-name">Bharatveer Singh</h1>
+    <img src="path/to/professional-photo.jpg" alt="Professional Photo" class="home-img">
+    <p id="user-detail-intro">Formal introduction text here.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+    <h2>About Me</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget dapibus justo, non malesuada nunc.
+      Nullam iaculis eleifend velit, ac ullamcorper quam euismod id.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-card">
+      <img src="path/to/skill1.jpg" alt="Skill 1" class="skills-card-img">
+      <p class="skills-card-name">Skill 1</p>
+    </div>
+    <div class="skills-card">
+      <img src="path/to/skill2.jpg" alt="Skill 2" class="skills-card-img">
+      <p class="skills-card-name">Skill 2</p>
+    </div>
+    <!-- Add more skills cards as needed -->
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <img src="path/to/project1.jpg" alt="Project 1">
+      <h3 class="project-title">Project 1</h3>
+      <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget dapibus
+        justo.</p>
+      <p class="project-tech-stack">Tech Stack: HTML, CSS, JavaScript</p>
+      <a href="https://github.com/project1" class="project-github-link" target="_blank">GitHub</a>
+      <a href="https://deployed-project1" class="project-deployed-link" target="_blank">Deployment</a>
+    </div>
+    <div class="project-card">
+      <!-- Add more project cards as needed -->
+    </div>
+  </section>
+
+
+  <section class="statistics section" id="statistics">
+    <div class="container">
+      <div class="row">
+        <div class="section-title padd-15">
+          <h2>Github Statistics</h2>
+        </div>
+      </div>
+      <h3 class="contact-title padd-15"></h3>
+      <div class="row">
+        <!-- ===== Contact info item start ===== -->
+        <div class="Github-stats">
+          
+            <a href="https://github.com/chiggy77" >
+                <img id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=chiggy77&theme=transparent&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="">
+            </a>
+           
+            <a href="https://github.com/chiggy77" >
+                <img id="github-stats-card" src="https://github-readme-stats.vercel.app/api?username=chiggy77&show_icons=true&theme=transparent&hide_border=true" alt="">
+            </a>
+
+            <a href="https://github.com/chiggy77" >
+                <img id="github-top-langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=chiggy77&layout=compact&hide_border=true&theme=transparent" alt="">
+            </a>
+    
+        </div>
+        <div class="react-activity-calendar">
+<div class="calendar" >
+            <!-- Loading stuff -->
+            Loading the data just for you.
+        </div>
+        </div>
+        
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <a href="https://github.com/chiggy77" id="contact-github">GitHub</a>
+    <a href="https://linkedin.com/in/chirag-arora-72881624b" id="contact-linkedin">LinkedIn</a>
+    <p id="contact-phone">Phone Number: 1234567890</p>
+    <p id="contact-email">Email: your-email@example.com</p>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume">
+    <h2>Resume</h2>
+    <a href="path/to/resume.pdf" id="resume-link-1" target="_blank">Resume Button 1</a>
+  </section>
+
+ 
+
+  <!-- Add any other sections as needed -->
+
+  <script>
+      GitHubCalendar(".calendar", "chiggy77");
+  // or enable responsive functionality
+  GitHubCalendar(".calendar", "chiggy77", { responsive: true });
+  </script>
+</body>
+
+</html>
