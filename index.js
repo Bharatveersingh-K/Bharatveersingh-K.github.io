@@ -1,280 +1,74 @@
+import React, { useState, useEffect } from 'react';
+import Book from './Book'; // Make sure to adjust the path based on your actual file structure
 
+const BookList = () => {
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
-// let menuIcon = document.querySelector('#menu-icon');
-// let navbar = document.querySelector('#nav-menu');
+  useEffect(() => {
+    // Make API call to get all books when the component mounts
+    fetch(`${process.env.REACT_APP_JSON_SERVER_URL}/books`)
+      .then((response) => response.json())
+      .then((data) => {
+        setBooks(data);
+        setLoading(false);
+      })
+      .catch((error) => console.error('Error fetching books:', error));
+  }, []);
 
-// menuIcon.onclick = () => {
-//   menuIcon.classList.toggle('bx-x');
-//   navbar.classList.toggle('active');
-// };
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
 
+  const filteredBooks = selectedCategory === 'all'
+    ? books
+    : books.filter((book) => book.category === selectedCategory);
 
-// //*=============================== toggle icon navbar ==================================
-
-// // let menuIcon = document.querySelector('#menu-icon');
-// // let navbar = document.querySelector('#nav-menu')
-
-// // menuIcon.onclick = () => {
-// //   menuIcon.classList.toggle('bx-x');
-// //   navbar.classList.toggle('active')
-// // };
-
-// // *=============================== github calendar ==================================
-// GitHubCalendar(".calendar", "RajTupe");
-
-// // or enable responsive functionality:
-// GitHubCalendar(".calendar", "RajTupe", { responsive: true });
-
-// // //*=============================== github calender ==================================
-// // GitHubCalendar(".calendar", "RajTupe");
-
-// // //or enable responsive functionality:
-// // GitHubCalendar(".calendar", "RajTupe", { responsive: true });
-
-
-// // *=============================== resume open in new tab ==================================
-// let resume1 = document.getElementById("resume-button-1").addEventListener("click", NewTab);
-// let resume2 = document.getElementById("resume-button-2").addEventListener("click", NewTab);
-
-// function NewTab() {
-//   window.open(
-//     "https://drive.google.com/file/d/1aIx7oXswHginslfjiUfM6fRxb4gcTBjX/view?usp=sharing",
-//     "_blank"
-//   );
-// }
-
-// // *=============================== scroll sections active link ==================================
-// let sections = document.querySelectorAll('section');
-// let navlinks = document.querySelectorAll('header nav a');
-
-
-// // *=============================== resume open in new tab ==================================
-
-
-// // let resume1 = document.getElementById("resume-button-1").addEventListener("click", NewTab)
-// // let resume2 = document.getElementById("resume-button-2").addEventListener("click", NewTab)
-
-// // function NewTab() {
-// //   window.open(
-// //     "https://drive.google.com/file/d/1aIx7oXswHginslfjiUfM6fRxb4gcTBjX/view?usp=sharing",
-// //     "_blank"
-// //   );
-// // }
-
-// // // *=============================== scroll sections active link ==================================
-// // let sections = document.querySelectorAll('section');
-// // let navlinks = document.querySelectorAll('header nav a')
-
-// window.onscroll = () => {
-//   sections.forEach(sec => {
-//     let top = window.scrollY;
-//     let offset = sec.offsetTop - 150;
-//     let height = sec.offsetHeight;
-//     let id = sec.getAttribute('id');
-
-//     if (top >= offset && top < offset + height) {
-//       navlinks.forEach(links => {
-//         links.classList.remove('active');
-//         document.querySelector('header nav a[href*="' + id + '"]').classList.add('active');
-//       });
-//     }
-//   });
-
-//   // *=============================== sticky navbar ==================================
-//   let header = document.querySelector('header');
-//   header.classList.toggle('sticky', window.scrollY > 100);
-
-//   // *=============================== remove toggle icon and navbar when click navbar link(scroll) ==================================
-//   menuIcon.classList.remove('bx-x');
-//   navbar.classList.remove('active');
-// };
-
-// // window.onscroll = () => {
-// //   sections.forEach(sec => {
-// //     let top = window.scrollY;
-// //     let offset = sec.offsetTop - 150;
-// //     let height = sec.offsetHeight;
-// //     let id = sec.getAttribute('id');
-
-// //     if (top >= offset && top < offset + height) {
-// //         navlinks.forEach(links => {
-// //           links.classList.remove('active');
-// //           document.querySelector('header nav a[href*="" + id + ""]').classList.add('active')
-// //         });
-// //     };
-
-// //   });
-// //   // *=============================== sticky navbar ==================================
-   
-// //   let header = document.querySelector('header');
-
-// //   header.classList.toggle('sticky', window.scrollY > 100);
-
-// // // *=============================== remove toggle icon and navbar when click navbar link(scroll) ==================================
-
-// // menuIcon.classList.remove('bx-x');
-// // navbar.classList.remove('active')
-
-// // };
-
-// // *=============================== scroll reveal ==================================
-
-// // // *=============================== scroll reveal ==================================
-// // ScrollReveal({
-// //   distance: '80px',
-// //   duration: 2000,
-// //   delay: 200
-// // });
-
-// // ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-// // ScrollReveal().reveal('.home-img, .skills-container, .project-card, .contact form', { origin: 'bottom' });
-// // ScrollReveal().reveal('.home-content h1', { origin: 'left' });
-// // ScrollReveal().reveal('.home-content p, .about-content', { origin: 'left' });
-
-// // // *=============================== typed.js ==================================
-// // const typed = new Typed('.multiple-text', {
-// //   strings: ['Full Stack Web Developer', 'Backend Developer'],
-// //   typeSpeed: 100,
-// //   backSpeed: 100,
-// //   backDelay: 1000,
-// //   loop: true
-// // });
-
-
-
-// ScrollReveal({
-//   // reset: true,
-//   distance: '80px',
-//   duration: 2000,
-//   delay: 200
-// });
-
-// ScrollReveal().reveal('.home-content, .heading', { origin: 'top'});
-// ScrollReveal().reveal('.home-img, .skills-container, .project-card, .contact form', { origin: 'bottom'});
-// ScrollReveal().reveal('.home-content h1', { origin: 'left'});
-// ScrollReveal().reveal('.home-content p, .about-content', { origin:'left'});
-
-// // *===============================  typed js==================================
-
-// const typed = new Typed('.multiple-text', {
-//   strings: ['Full Stack Web Developer', 'Backend Developer'],
-//   typeSpeed: 100,
-//   backSpeed: 100,
-//   backdelay: 1000,
-//   loop: true
-// })
-
-
-
-// GitHubCalendar(".calendar", "rajtupe987");
-
-// // or enable responsive functionality:
-// GitHubCalendar(".calendar", "rajtupe987", { responsive: true });
-
-// // Use a proxy
-// GitHubCalendar(".calendar", "rajtupe987", {
-//    proxy (username) {
-//      return fetch(`https://your-proxy.com/github?user=${username}`)
-//    }
-// });
-
-
-
-//*=============================== toggle icon navbar ==================================
-
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('#nav-menu')
-
-menuIcon.onclick = () => {
-  menuIcon.classList.toggle('bx-x');
-  navbar.classList.toggle('active')
+  return (
+    <>
+      <div className="filter-options">
+        <label>
+          Category:
+          <select
+            className="filter-by-category"
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+          >
+            <option value="all">All Categories</option>
+            <option value="Classic">Classic</option>
+            <option value="Dystopian">Dystopian</option>
+            <option value="Romance">Romance</option>
+            <option value="Coming of age">Coming of Age</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Political satire">Political Satire</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Epic poem">Epic Poem</option>
+          </select>
+          </label>
+        <label>
+          Search:
+          <input />
+        </label>
+      </div>
+      <div className="book-list">
+        {loading ? (
+          <h1 className="loading-text">Loading...</h1>
+        ) : (
+          filteredBooks.map((book) => (
+            <Book
+              key={book.id} // Make sure each book has a unique identifier (adjust based on your actual data structure)
+              title={book.title}
+              author={book.author}
+              ISBN={book.isbn}
+              category={book.category}
+              publicationDate={book.publication_date}
+            />
+          ))
+        )}
+      </div>
+    </>
+  );
 };
 
-// *=============================== github calender ==================================
-    GitHubCalendar(".calendar", "MeghaRawat");
-
-    // or enable responsive functionality:
-    GitHubCalendar(".calendar", "MeghaRawat", { responsive: true });
-
-// *=============================== resume open in new tab ==================================
-
-
-    let resume1 = document.getElementById("resume-button-1").addEventListener("click", NewTab)
-    let resume2 = document.getElementById("resume-button-2").addEventListener("click", NewTab)
-
-    function NewTab() {
-      window.open(
-        "https://drive.google.com/file/d/1GZjwIX2LqYyGnNInSdhSz60om8GeVGgo/view?usp=sharing",
-        "_blank"
-      );
-    }
-
-// *=============================== scroll sections active link ==================================
-let sections = document.querySelectorAll('section');
-let navlinks = document.querySelectorAll('header nav a')
-
-window.onscroll = () => {
-  sections.forEach(sec => {
-    let top = window.scrollY;
-    let offset = sec.offsetTop - 150;
-    let height = sec.offsetHeight;
-    let id = sec.getAttribute('id');
-
-    if(top >= offset && top < offset + height) {
-        navlinks.forEach(links => {
-          links.classList.remove('active');
-          document.querySelector('header nav a[href*=' + id + ']').classList.add('active')
-        });
-    };
-
-  });
-  // *=============================== sticky navbar ==================================
-   
-  let header = document.querySelector('header');
-
-  header.classList.toggle('sticky', window.scrollY > 100);
-
-// *=============================== remove toggle icon and navbar when click navbar link(scroll) ==================================
-
-menuIcon.classList.remove('bx-x');
-navbar.classList.remove('active')
-
-};
-
-// *=============================== scroll reveal ==================================
-
-ScrollReveal({
-  // reset: true,
-  distance: '80px',
-  duration: 2000,
-  delay: 200
-});
-
-ScrollReveal().reveal('.home-content, .heading', { origin:'top'});
-ScrollReveal().reveal('.home-img, .skills-container, .project-card, .contact form', { origin:'bottom'});
-ScrollReveal().reveal('.home-content h1', { origin:'left'});
-ScrollReveal().reveal('.home-content p, .about-content', { origin:'left'});
-
-// *===============================  typed js==================================
-
-const typed = new Typed('.multiple-text', {
-  strings: ['Full Stack Web Developer', 'Front-End  Developer'],
-  typeSpeed: 100,
-  backSpeed: 100,
-  backdelay: 1000,
-  loop: true
-})
-
-
-
-GitHubCalendar(".calendar", "megha9354");
-
-// or enable responsive functionality:
-GitHubCalendar(".calendar", "megha9354", { responsive: true });
-
-// Use a proxy
-GitHubCalendar(".calendar", "megha9354", {
-   proxy (username) {
-     return fetch(`https://your-proxy.com/github?user=${username}`)
-   }
-});
+export default BookList;

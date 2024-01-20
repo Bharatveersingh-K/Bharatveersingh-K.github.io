@@ -347,6 +347,9 @@ span {
   margin: 1.5rem 0 3rem;
   text-align: left;
 }
+#contact-phone{
+  color: white;
+}
 
 
 /*-----------------------------------*\
@@ -435,8 +438,31 @@ span {
   box-shadow: 0 0 1rem var(--bg-carolina-blue);
   overflow: hidden;
   display: flex;
+  margin-bottom: 20px;
 
 }
+.project-container .project-card .projectlinks {
+  display: flex;
+  flex-direction: row; /* Adjusted to a column layout for better spacing */
+  align-items: center; /* Center the buttons horizontally */
+  margin-top: 10px; /* Adjust the top margin value as needed */
+}
+
+.project-container .project-card .projectlinks button {
+  margin-bottom: 10px; /* Add bottom margin to the buttons */
+  padding: 10px;
+  border: 1px solid var(--bg-carolina-blue);
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project-container .project-card .projectlinks button:hover {
+  background-color: var(--bg-carolina-blue);
+  color: #fff;
+}
+
 
 .project-card img {
   width: 100%;
@@ -793,7 +819,7 @@ span {
     margin-left: 20%;
     margin-bottom: 70%;
     /* border: solid red; */
-
+    
   }
 
 
@@ -843,8 +869,9 @@ span {
   }
 
   .home-img {
-    width: 40vw;
+    width: 45vw;
     margin-top: 1rem;
+    padding-right: 50px;
   }
 
   .about {
@@ -879,6 +906,7 @@ span {
 @media (max-width: 365px) {
   .home-img img {
     width: 90vw;
+    padding-right: 15px;
   }
 
   .footer {
@@ -920,4 +948,27 @@ span {
     left: 60px;
   }
 
+}
+.projectlinks {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.project-github-link {
+  background-color: #2ecc71;
+}
+
+.project-deployed-link {
+  background-color: #e74c3c;
 }
