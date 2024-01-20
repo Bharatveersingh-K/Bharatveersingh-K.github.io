@@ -1,74 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import Book from './Book'; // Make sure to adjust the path based on your actual file structure
 
-const BookList = () => {
-  const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState('all');
 
-  useEffect(() => {
-    // Make API call to get all books when the component mounts
-    fetch(`${process.env.REACT_APP_JSON_SERVER_URL}/books`)
-      .then((response) => response.json())
-      .then((data) => {
-        setBooks(data);
-        setLoading(false);
-      })
-      .catch((error) => console.error('Error fetching books:', error));
-  }, []);
+  // Activate scrollreveal
+  ScrollReveal().reveal('.skills-container .skills-card-1', {
+    duration: 1000,
+    origin: 'bottom',
+    distance: '50px',
+    easing: 'ease-out'
+  });
 
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-  };
+  // Activate typed.js
+  var typed = new Typed('.multiple-text', {
+    strings: ["Full-stack Developer", "React Enthusiast", "Problem Solver"],
+    typeSpeed: 50,
+    backSpeed: 30,
+    backDelay: 2000,
+    startDelay: 1000,
+    loop: true
+  });
 
-  const filteredBooks = selectedCategory === 'all'
-    ? books
-    : books.filter((book) => book.category === selectedCategory);
+  // GitHub Calendar
+  GitHubCalendar(".react-activity-calendar", "Bharatveersingh-K");
 
-  return (
-    <>
-      <div className="filter-options">
-        <label>
-          Category:
-          <select
-            className="filter-by-category"
-            value={selectedCategory}
-            onChange={handleCategoryChange}
-          >
-            <option value="all">All Categories</option>
-            <option value="Classic">Classic</option>
-            <option value="Dystopian">Dystopian</option>
-            <option value="Romance">Romance</option>
-            <option value="Coming of age">Coming of Age</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Political satire">Political Satire</option>
-            <option value="Mystery">Mystery</option>
-            <option value="Epic poem">Epic Poem</option>
-          </select>
-          </label>
-        <label>
-          Search:
-          <input />
-        </label>
-      </div>
-      <div className="book-list">
-        {loading ? (
-          <h1 className="loading-text">Loading...</h1>
-        ) : (
-          filteredBooks.map((book) => (
-            <Book
-              key={book.id} // Make sure each book has a unique identifier (adjust based on your actual data structure)
-              title={book.title}
-              author={book.author}
-              ISBN={book.isbn}
-              category={book.category}
-              publicationDate={book.publication_date}
-            />
-          ))
-        )}
-      </div>
-    </>
-  );
-};
+  // Initialize scrollreveal
+  ScrollReveal().reveal('.about-content', {
+    duration: 1000,
+    origin: 'bottom',
+    distance: '50px',
+    easing: 'ease-out'
+  });
 
-export default BookList;
+  // Add a scroll event listener to change the background color of the navbar
+  window.addEventListener('scroll', function () {
+    var header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+      header.classList.add('navbar-bg');
+    } else {
+      header.classList.remove('navbar-bg');
+    }
+  });
+
+ 

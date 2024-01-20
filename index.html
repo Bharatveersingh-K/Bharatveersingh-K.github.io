@@ -279,6 +279,8 @@
   </h2>
   <div class="project-container">
 
+
+    
     <!-- Blue Mercury -->
     <div class="projectScondContaier project-card">
       <img src="./images/BlueMercury.jpeg" alt="">
@@ -290,10 +292,10 @@
       </p>
       <h5 class="project-tech-stack">HTML | CSS | JavaScript </h5>
       <div class="projectlinks">
-        <button onclick="openInNewTab('https://github.com/Bharatveersingh-K/Bluemercury-Clone')">
+        <button data-link="https://github.com/Bharatveersingh-K/Bluemercury-Clone">
           <i class='bx bxl-github'></i> GitHub
         </button>
-        <button onclick="openInNewTab('https://6513b8270c98945820da536c--frolicking-praline-b59d0d.netlify.app/bluerewords')">
+        <button  data-link="https://6513b8270c98945820da536c--frolicking-praline-b59d0d.netlify.app/bluerewords">
           <i class='bx bxl-netlify'></i> Netlify
         </button>
       </div>
@@ -312,10 +314,10 @@
         development.</p>
       <h5 class="project-tech-stack">HTML | CSS | JavaScript | json Server | React | Redux</h5>
       <div class="projectlinks">
-        <button onclick="openInNewTab('https://github.com/Bharatveersingh-K/team10_mwendoProject')">
+        <button data-link="https://github.com/Bharatveersingh-K/team10_mwendoProject">
           <i class='bx bxl-github'></i> GitHub
         </button>
-        <button onclick="openInNewTab('https://mwendu-project.netlify.app/')">
+        <button data-link="https://mwendu-project.netlify.app/">
           <i class='bx bxl-netlify'></i> Netlify
         </button>
       </div>
@@ -330,10 +332,10 @@
         registration and login. We have used local-storage for Store data.</p>
       <h5 class="project-tech-stack">HTML | CSS | JavaScript </h5>
       <div class="projectlinks">
-        <button onclick="openInNewTab('https://meghatatacliq.netlify.app/')">
+        <button data-link="https://meghatatacliq.netlify.app/">
           <i class='bx bxl-github'></i> GitHub
         </button>
-        <button onclick="openInNewTab('https://meghatatacliq.netlify.app/')">
+        <button data-link="https://meghatatacliq.netlify.app/">
           <i class='bx bxl-netlify'></i> Netlify
         </button>
       </div>
@@ -350,10 +352,10 @@
         experience</p>
       <h5 class="project-tech-stack">HTML | CSS | JavaScript </h5>
       <div class="projectlinks">
-        <button onclick="openInNewTab('https://github.com/Rohit27698/tarval--hillStation')">
+        <button data-link="https://github.com/Rohit27698/tarval--hillStation">
           <i class='bx bxl-github'></i> GitHub
         </button>
-        <button onclick="openInNewTab('https://hilling-3e85n1yls-rohit27698.vercel.app/')">
+        <button data-link="https://hilling-3e85n1yls-rohit27698.vercel.app/">
           <i class='bx bxl-netlify'></i> Netlify
         </button>
       </div>
@@ -445,6 +447,40 @@
   </footer>
 
   <!--  Footer Ends  -->
+<script>
+
+  // Function to open a link in a new tab
+  function openInNewTab(url) {
+   window.open(url, '_blank');
+ }
+ 
+ document.addEventListener('DOMContentLoaded', function () {
+   // Get all project cards
+   const projectCards = document.querySelectorAll('.project-card');
+ 
+   // Loop through each project card
+   projectCards.forEach(function (card) {
+     // Get GitHub and Netlify buttons inside each project card
+     const githubButton = card.querySelector('.projectlinks button:first-child');
+     const netlifyButton = card.querySelector('.projectlinks button:last-child');
+ 
+     // Add click event listeners to GitHub and Netlify buttons
+     githubButton.addEventListener('click', function () {
+       // Get the GitHub link from the data attribute
+       const githubLink = githubButton.getAttribute('data-link');
+       // Open the GitHub link in a new tab
+       openInNewTab(githubLink);
+     });
+ 
+     netlifyButton.addEventListener('click', function () {
+       // Get the Netlify link from the data attribute
+       const netlifyLink = netlifyButton.getAttribute('data-link');
+       // Open the Netlify link in a new tab
+       openInNewTab(netlifyLink);
+     });
+   });
+ });
+   </script>
 
   <script src="https://unpkg.com/scrollreveal"></script>
 
@@ -452,7 +488,10 @@
   <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
 
 
-  <script src="index.js"></script>
+  <script src="index.js">
+
+ 
+  </script>
 
 
 </body>
