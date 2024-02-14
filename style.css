@@ -134,6 +134,7 @@ section {
   color: var(--text-color);
   margin-left: 3rem;
 }
+ 
 
 
 #nav-menu {
@@ -161,10 +162,10 @@ section {
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: -50px;
-  justify-content: space-between;
+ 
+  
   align-items: center;
-  align-items: flex-end;
+  
 
 }
 
